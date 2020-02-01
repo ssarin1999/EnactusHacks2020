@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Create Schema
-const ClientSchema = new Schema({
+const EnergyProviderSchema = new Schema({
 	name: String,
+	type: String,
+	ratePerKwh: Number,
 	address: String,
 	postal: String,
 	city: String,
@@ -12,6 +14,6 @@ const ClientSchema = new Schema({
 });
 
 // Create Model
-const Client = mongoose.model('client', ClientSchema);
+const EnergyProvider = mongoose.model('energyProvider', EnergyProviderSchema);
 
-module.exports = Client;
+module.exports = EnergyProvider;
