@@ -19,7 +19,7 @@ const Usage = require('../models/Usage');
 // ======================================================================================
 // API's
 
-// '/api/usage' - GET - get all usages for a client
+// '/api/usage/:client' - GET - get all usages for a client
 router.get('/:client', (req, res) => {
 	let clientName = req.params.client;
 	console.log("GET Request to /api/usage/:" + clientName);
@@ -81,6 +81,45 @@ router.post('/', (req, res) => {
 		res.status(500).json({error: err});
     });
 });
+
+// '/api/usage/projection/:client' - GET - get projection usages for a client
+router.get('/projection/:client', (req, res) => {
+	let clientName = req.params.client;
+	console.log("GET Request to /api/usage/projection/:" + clientName);
+
+	axios.get('http://localhost:8080/api/usage/' + clientName)
+    .then(response => {
+		let usages = response.data;
+		let length = usages.length;
+		
+		
+		
+
+    })
+    .catch(error => {
+		console.log(error);
+		res.status(500).json({error: error});
+    });
+});
+
+
+// ======================================================================================
+// Helper Functions
+function calcAvgCarbonTonChange(usages, length){
+	let monthlyChange = [];
+	for(let i = 0; i < length-1; i++){
+		let change = usages[i+1].carbonTon - usages[i].carbonTon;
+		monthlyChange.push(change);
+	}
+
+	if(monthlyChange[monthlyChange.length-1] < 0){
+		// Recent Decrease
+		
+	}
+	else{
+		
+	}
+}
 
 
 // ======================================================================================
