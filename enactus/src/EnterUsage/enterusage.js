@@ -4,6 +4,7 @@ import React from 'react';
 import './enterusage.css';
 
 
+
 class EnactusEnterUsage extends React.Component {
     constructor(props) {
         super(props);
@@ -41,9 +42,39 @@ class EnactusEnterUsage extends React.Component {
     
       handleSubmit(event) {
         alert('Provider: ' + this.state.energyprovider + '\n' + 'Cost: ' + this.state.cost + '\n' + 'Usage: ' + this.state.usage + '\n' + 'Month: ' + this.state.month + '\n' + 'Year: ' + this.state.year + '\n');
+        var body = {
+            clientName: 'Arya Inc.',
+            month: 1,
+            day: 2020,
+            usageDollar: 350000,
+            usageKwh: 300,
+            carbonDollar: 20000
+        };
+
+        let url = 'http://localhost:8080/api/usage';
+        
+        fetch(url, {
+            method: 'post',
+            headers: {'Content-Type' : 'application/json'},
+            body : JSON.stringify({
+                'clientName': 'Arya Inc.',
+                'month': 1,
+                'day': 2020,
+                'usageDollar': 350000,
+                'usageKwh': 300,
+                'carbonDollar': 20000
+            })
+        }).then(res => {
+            if (res.ok) console.log(res.json())
+        }).then(data => {
+            // window.location.reload(true);
+        });
+
+
         event.preventDefault();
-        window.location.replace("/");
-      }
+        // window.location.replace("/");
+    }
+
     
   render(){
   return (

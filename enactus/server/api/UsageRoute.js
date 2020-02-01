@@ -27,13 +27,13 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 	console.log("POST request to /api/usage");
 	console.log(req.body);
-	let clientID = getClientId(req.body.clientName);
-	console.log(clientID);
+	// let clientID = getClientId(req.body.clientName);
+	// console.log(clientID);
 	let carbonDollar = req.body.carbonDollar;
 	let carbonTon = carbonDollar/20;
 
     const newUsage = new Usage({
-        clientID: clientID,
+        clientID: "clientID",
 		month: req.body.month,
 		year: req.body.year,
 		usageDollar: req.body.usageDollar,
