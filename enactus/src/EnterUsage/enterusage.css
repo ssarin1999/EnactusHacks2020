@@ -3,8 +3,48 @@
     left:0%;
     top:17%;
 }
-
+.App{
+    overflow-y:hidden;
+}
 .input-form{
     position:absolute;
-    left:25%;
+    left:2%;
+    top:15%;
+    width:30%;
+    background-color:white;
+    padding:30px;
 }
+
+.background-shape{
+    overflow:hidden;
+    border-radius: 10% / 50%;
+    background-color:#0beb98;
+    position:absolute;
+    width:100%;
+    height:100%;
+    right:-35%;
+    top:25%;
+    z-index:-1;
+}
+
+input[type=number],input[type="name"] {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  button {
+    background-color: #0beb98;
+    position: absolute;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border:none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 25%;
+   
+  }
