@@ -1,0 +1,113 @@
+
+.App{
+  float:right;
+}
+.App-logo {
+    height: 40vmin;
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: rgb(255, 255, 255);
+  }
+  .topnav {
+    background-color:rgb(255, 255, 255);
+    overflow: hidden;
+  }
+  
+  .topnav a {
+    float: right;
+    display: block;
+    color: #00d084;
+    text-align: right;
+    padding: 25px 30px;
+    text-decoration: none;
+    font-size: 22px;
+    letter-spacing:2px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .logo{
+    position:absolute;
+    float:left;
+    display:block;
+    left:1%;
+    z-index:1;
+  }
+
+.name{
+  position:absolute;
+  left:13%;
+  top:4%;
+}
+
+.name h1{
+  font-size:33px;
+}
+
+.slogan{
+  text-align:center;
+  position:absolute;
+  left:23%;
+  top:15%;
+  
+}
+
+.home-background{
+  position:absolute;
+  left:0%;
+  top:33%;
+}
+.green{
+  color:#00d084;
+}
+
+.slogan h2{
+  font-size:45px;
+  font-family: 'Poppins', sans-serif;
+}
+ 
+  .topnav a.active {
+    background-color:#00d084;
+    color: white;
+  }
+
+
+
+  .topnav :hover{
+    color:black;
+  }
+  .topnav .icon {
+    display: none;
+  }
+  .App-link {
+    color: #09d3ac;
+  }
+  
+  .fade-appear,
+  .fade-enter {
+      opacity: 0;
+      z-index: 1;
+  }
+  .fade-appear-active,
+  .fade-enter.fade-enter-active {
+      opacity: 1;
+      transition: opacity 300ms linear 150ms;
+  }
+  
+  .fade-exit {
+      opacity: 1;
+  }
+  
+  .fade-exit.fade-exit-active {
+      opacity: 0;
+      transition: opacity 150ms linear;
+  }
+  
+  
