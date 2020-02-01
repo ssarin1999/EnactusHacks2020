@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// User model
+// Models
 const Client = require('../models/Client');
 /*	ClientSchema = {
     	name: String,
@@ -15,9 +15,22 @@ const Client = require('../models/Client');
 
 // ======================================================================================
 // API's
-// '/api/client' - GET
-router.get('/', (req, res) => {
-	res.send("Client says hi");
+// '/api/client/:name' - GET
+router.get('/:name', (req, res) => {
+    console.log("GET Request to /api/client/:" + clientName);
+	
+	let clientName = req.params.name;
+	
+
+	Client.findOne({_id: songId})
+	.then(items => {
+		console.log(items);
+		res.json(items)
+	})
+	.catch(err => {
+		console.log(err);
+        res.status(500).json({error: err});
+    });
 });
 
 

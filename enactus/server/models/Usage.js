@@ -3,13 +3,34 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const UsageSchema = new Schema({
-	clientID: String,
-	month: Number,
-	year: Number,
-	usageDollar: Number,
-	usageKwh: Number,
-	carbonDollar: Number,
-	carbonTon: Number
+	clientID: {
+        type: String,
+        required: true
+    },
+	month: {
+        type: Number,
+        required: true
+    },
+	year: {
+        type: Number,
+        required: true
+    },
+	usageDollar: {
+        type: Number,
+        required: true
+    },
+	usageKwh: {
+        type: Number,
+        required: true
+    },
+	carbonDollar: {
+        type: Number,
+        required: true
+    },
+	carbonTon: {
+        type: Number,
+        required: true
+    }
 });
 
 // Create Model
