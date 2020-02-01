@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// User model
+// Models
 const EnergyProvider = require('../models/EnergyProvider');
 /*	EnergyProviderSchema = {
 		name: String,
