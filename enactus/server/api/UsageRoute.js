@@ -19,12 +19,34 @@ const Usage = require('../models/Usage');
 // ======================================================================================
 // API's
 
-// '/api/usage' - GET
-router.get('/', (req, res) => {
+// '/api/usage' - GET - get all usages for a client
+router.get('/:client', (req, res) => {
+	let clientName = req.params.client;
+	console.log("GET Request to /api/usage/:" + clientName);
+	
+	axios.get('http://localhost:8080/api/client/' + clientName)
+    .then(response => {
+		let clientID = response.data;
+		
+		Usage.find({clientID: clientID})
+		.then(items => {
+			console.log(items);
+			res.status(200).send(items);
+		})
+		.catch(err => {
+			console.log(err);
+        	res.status(500).json({error: err});
+		});
 
+    })
+    .catch(error => {
+		console.log(error);
+		res.status(500).json({error: error});
+    });
+	
 });
 
-// '/api/usage' - POST
+// '/api/usage' - POST - post new usage
 router.post('/', (req, res) => {
 	console.log("POST request to /api/usage");
 	let clientName = req.body.clientName;
@@ -34,7 +56,7 @@ router.post('/', (req, res) => {
     .then(response => {
 		let clientID = response.data;
 		let carbonDollar = req.body.carbonDollar;
-		let carbonTon = parseFloat(carbonDollar)/20;
+		let carbonTon = parseFloat(carbonDollar)/30;
 
 		const newUsage = new Usage({
 			clientID: clientID,
