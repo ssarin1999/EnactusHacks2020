@@ -9,6 +9,7 @@ import {
 import logo from './Images/logo.PNG';
 import Home from './Homepage/home';
 import Enter from './EnterUsage/enterusage';
+import See from './SeeUsage/seeusage';
 
 class EnactusMainPage extends React.Component {
   render(){
@@ -40,6 +41,7 @@ class EnactusMainPage extends React.Component {
      <Switch location={location}>
         <Route exact path='/'component={Home}/>
         <Route exact path='/add'component={Enter}/>
+        <Route exact path='/see'component={See}/>
     </Switch>
 
       </CSSTransition>

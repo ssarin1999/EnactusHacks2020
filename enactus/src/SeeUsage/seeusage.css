@@ -1,0 +1,25 @@
+
+.App{
+    overflow-y:hidden;
+}
+
+
+.background-shape1{
+    overflow:hidden;
+    border-radius: 15% / 75%;
+    background-color:#0beb98;
+    position:absolute;
+    width:150%;
+    height:150%;
+    right:0%;
+    top:20%;
+    z-index:-1;
+}
+
+.chart{
+    position:absolute;
+    left:5%;
+    top:40%;
+    width:40%;
+}
+
