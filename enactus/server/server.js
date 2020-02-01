@@ -7,6 +7,7 @@ const cors = require('cors')
 
 // API Routes
 const UsageRoutes = require('./api/UsageRoute');
+const ClientRoutes = require('./api/ClientRoute');
 
 const app = express();
 
@@ -28,6 +29,7 @@ mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true })
 // ======================================================================================
 // Use Routes
 app.use('/api/usage', UsageRoutes);
+app.use('/api/client', ClientRoutes);
 
 
 // ======================================================================================
