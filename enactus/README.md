@@ -8,3 +8,5 @@
 ##   npm install mongoose
 ##   npm install body-parser
 ##   npm install cors
+##   npm install node.js
+##   npm install nodemon
