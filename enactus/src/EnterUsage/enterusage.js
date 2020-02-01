@@ -7,7 +7,8 @@ import './enterusage.css';
 class EnactusEnterUsage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {energyprovider: '',cost: '',usage: '',month: '',year: ''};
+        this.state = {
+            energyprovider: '',cost: '',usage: '',month: '',year: ''};
     
         this.handleProvider = this.handleProvider.bind(this);
         this.handleCost = this.handleCost.bind(this);
@@ -41,7 +42,9 @@ class EnactusEnterUsage extends React.Component {
       handleSubmit(event) {
         alert('Provider: ' + this.state.energyprovider + '\n' + 'Cost: ' + this.state.cost + '\n' + 'Usage: ' + this.state.usage + '\n' + 'Month: ' + this.state.month + '\n' + 'Year: ' + this.state.year + '\n');
         event.preventDefault();
+        window.location.replace("/");
       }
+    
   render(){
   return (
     
