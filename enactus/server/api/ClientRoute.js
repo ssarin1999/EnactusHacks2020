@@ -17,15 +17,13 @@ const Client = require('../models/Client');
 // API's
 // '/api/client/:name' - GET
 router.get('/:name', (req, res) => {
+	let clientName = req.params.name;
     console.log("GET Request to /api/client/:" + clientName);
 	
-	let clientName = req.params.name;
-	
-
-	Client.findOne({_id: songId})
+	Client.findOne({name: clientName})
 	.then(items => {
 		console.log(items);
-		res.json(items)
+		res.send(items._id);
 	})
 	.catch(err => {
 		console.log(err);

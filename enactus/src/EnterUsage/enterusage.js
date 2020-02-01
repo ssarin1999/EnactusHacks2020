@@ -46,20 +46,17 @@ class EnactusEnterUsage extends React.Component {
       }
     
       handleSubmit(event) {
-        alert('Provider: ' + this.state.energyprovider + '\n' + 'Cost: ' + this.state.cost + '\n' + 'Usage: ' + this.state.usage + '\n' + 'Month: ' + this.state.month + '\n' + 'Year: ' + this.state.year + '\n'+ 'Carbon: ' + this.state.carbon + '\n');
-
         let url = 'http://localhost:8080/api/usage';
-        
         fetch(url, {
             method: 'post',
             headers: {'Content-Type' : 'application/json'},
             body : JSON.stringify({
                 'clientName': this.state.energyprovider,
                 'month': this.state.month,
-                'day': this.state.usage,
+                'year': this.state.year,
                 'usageDollar': this.state.cost,
                 'usageKwh': this.state.usage,
-                'carbonDollar': 20000
+                'carbonDollar': this.state.carbon
             })
         }).then(res => {
             if (res.ok) console.log(res.json())
