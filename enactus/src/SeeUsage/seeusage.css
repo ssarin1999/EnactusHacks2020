@@ -18,14 +18,14 @@
 
 .chart{
     position:absolute;
-    left:5%;
+    left:1%;
     top:40%;
     width:40%;
 }
 
 .usage-title{
     position:absolute;
-    left:5%;
+    left:14%;
     top:25%;
     color:white;
     font-family: 'Poppins', sans-serif;
@@ -33,11 +33,34 @@
 
 .analysis{
     position:absolute;
-    left:50%;
-    top:45%;
+    left:47%;
+    top:30%;
     color:white;
     font-size:22px;
     font-family: 'Poppins', sans-serif;
 }
+.year1{
+    position:absolute;
+    left:42.5%;
+    top:50%;
+}
 
+.year2{
+    position:absolute;
+    left:61%;
+    top:50%;
+}
 
+.year3{
+    position:absolute;
+    left:79%;
+    top:50%;
+}
+
+.green{
+    color:#00d084;
+}
+
+.white{
+    color:white;
+}
