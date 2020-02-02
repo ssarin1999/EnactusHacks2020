@@ -161,7 +161,7 @@ class EnactusSeeUsage extends React.Component {
   </Card.Body>
 </Card>
 
-<Card className="year3" border="success" style={{ width: '19rem' }}>
+<Card className="year3"   border="success" style={{ width: '19rem' }}>
   <Card.Body>
     <Card.Title><h2 class="green">{this.state.projection3Year}</h2></Card.Title>
     <Card.Subtitle className="mb-2 text-muted">Projections for</Card.Subtitle>
