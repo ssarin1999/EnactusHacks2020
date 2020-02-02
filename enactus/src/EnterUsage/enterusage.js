@@ -9,9 +9,8 @@ class EnactusEnterUsage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            energyprovider: '',cost: '',usage: '',month: '',year: '',carbon: ''};
+            energyprovider: 'test',cost: '',usage: '',month: '',year: '',carbon: ''};
     
-        this.handleProvider = this.handleProvider.bind(this);
         this.handleCost = this.handleCost.bind(this);
         this.handleUsage = this.handleUsage.bind(this);
         this.handleMonth = this.handleMonth.bind(this);
@@ -21,9 +20,6 @@ class EnactusEnterUsage extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
       }
     
-      handleProvider(event) {
-        this.setState({energyprovider: event.target.value});
-      }
     
       handleCost(event) {
         this.setState({cost: event.target.value});
@@ -83,8 +79,6 @@ class EnactusEnterUsage extends React.Component {
       </div>
     
       
-    <h5 class="h5-signup">Energy Provider</h5>
-    <input type="name" placeholder="Name of Energy Provider" energyprovider={this.state.energyprovider} onChange={this.handleProvider} required/>
       
     <h5 class="h5-signup">Usage Cost (in $)</h5 >
     <input type="number" placeholder="Enter Usage Cost" cost={this.state.cost} onChange={this.handleCost} required/>

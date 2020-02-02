@@ -10,6 +10,8 @@ import logo from './Images/logo.PNG';
 import Home from './Homepage/home';
 import Enter from './EnterUsage/enterusage';
 import See from './SeeUsage/seeusage';
+import login from './Login/login';
+import projection from './Projections/projections';
 
 class EnactusMainPage extends React.Component {
   render(){
@@ -26,7 +28,7 @@ class EnactusMainPage extends React.Component {
             <h1>EnerTrack</h1>
          </div>
           <NavLink exact to="/login" activeClassName="active">Login</NavLink>
-          <NavLink exact to="/premium" activeClassName="active">Premium</NavLink>
+          <NavLink exact to="/projection" activeClassName="active">Projection</NavLink>
           <NavLink to="/see" activeClassName="active">My Usage</NavLink>
           <NavLink exact to="/add" activeClassName="active">Add Usage</NavLink>
           <NavLink exact to="/" activeClassName="active">Home</NavLink>
@@ -42,6 +44,8 @@ class EnactusMainPage extends React.Component {
         <Route exact path='/'component={Home}/>
         <Route exact path='/add'component={Enter}/>
         <Route exact path='/see'component={See}/>
+        <Route exact path='/login'component={login}/>
+        <Route exact path='/projection'component={projection}/>
     </Switch>
 
       </CSSTransition>

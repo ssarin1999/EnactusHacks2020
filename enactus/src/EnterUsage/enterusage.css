@@ -46,5 +46,6 @@ input[type=number],input[type="name"] {
     border-radius: 25px;
     cursor: pointer;
     width: 25%;
+    top:100%;
    
   }
