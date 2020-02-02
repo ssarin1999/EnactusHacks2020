@@ -32,12 +32,16 @@ class EnactusSeeUsage extends React.Component {
                 }
 
                 avg = avg/data.length;
+                avg = Math.round(avg);
                 console.log(avg);
                 this.setState({
                     average:avg
                 }) 
             
-                pchange = Math.round((data[data.length-2].usageKwh / data[data.length-1].usageKwh)*100);
+                pchange = Math.round((data[data.length-1].usageKwh - data[data.length-2].usageKwh)/data[data.length-2].usageKwh*100);
+                if(data[data.length-1].usageKwh > data[data.length-2].usageKwh){
+                  pchange = pchange*(-1);
+                }
 
                 this.setState({
                     percent:pchange
