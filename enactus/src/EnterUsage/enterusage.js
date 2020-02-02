@@ -61,12 +61,12 @@ class EnactusEnterUsage extends React.Component {
         }).then(res => {
             if (res.ok) console.log(res.json())
         }).then(data => {
-            // window.location.reload(true);
+            window.location.replace("/see");
         });
 
 
         event.preventDefault();
-        // window.location.replace("/");
+       
     }
 
   render(){

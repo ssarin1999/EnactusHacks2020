@@ -4,12 +4,13 @@ import React from 'react';
 import './seeusage.css';
 import Chart from '../components/Chart';
 
-
 class EnactusSeeUsage extends React.Component {
     constructor(){
         super();
         this.state = {
-          chartData:{}
+          chartData:{},
+          average:'',
+          percent:''
         }
       }
     
@@ -18,37 +19,49 @@ class EnactusSeeUsage extends React.Component {
       }
     
       getChartData(){
-          const url ="http://localhost:8080/api/usage/Arya Inc.";
-
+        var s =[];
+        var avg = 10;
+        var pchange = 0;
+          const url ="http://localhost:8080/api/usage/test";
           fetch(url).then(response=> response.json().then(data => {
-            console.log(data[0].year);
-                var s =[];
-                console.log(data.json());
-                for(var i = 0; i < data.length;i++){
-                    s.append(data[i].usage);
-                }
-            
-                this.setState({
-                   chartData:{
-                       labels: ['J', 'F', 'M', 'A', 'M', 'J','J','A','S','O','N','D'],
-                       datasets:[
-                         {
-                           label:'Energy Consumption (in kWh)',
-                           data:s,
-                           backgroundColor:[
-                               'rgba(255, 255, 255,1)'
 
-                            
-                           ]
-                         }
-                       ]
-                     }
-               })
-                
+                for(var i = 0; i < data.length;i++){
+                   s.push(data[i].usageKwh);
+                   avg = avg + data[i].usageKwh;
+                   console.log(avg);
+                }
+
+                avg = avg/data.length;
+                console.log(avg);
+                this.setState({
+                    average:avg
+                }) 
+            
+                pchange = Math.round((data[data.length-2].usageKwh / data[data.length-1].usageKwh)*100);
+
+                this.setState({
+                    percent:pchange
+                }) 
             }
-        ).then(res=>{console.log(res)})
-          );
-              
+        )
+          )
+
+          this.setState({
+            chartData:{
+                labels: ['J', 'F', 'M', 'A', 'M', 'J','J','A','S','O','N','D'],
+                datasets:[
+                  {
+                    label:'Energy Consumption (in kWh)',
+                    data:s,
+                    backgroundColor:[
+                        'rgba(255, 255, 255,1)'
+
+                     
+                    ]
+                  }
+                ]
+              }
+        }) 
             
           
       
@@ -61,6 +74,7 @@ class EnactusSeeUsage extends React.Component {
 <div class="background-shape1"></div>
 <h1 class="usage-title">Your Usage</h1>
         <Chart class="chart" chartData={this.state.chartData}/>
+    <h4 class="analysis">Your average consumption this year is {this.state.average} kWh per month<br/><br/>Your consumption has changed {this.state.percent}% since last month.</h4>
 
     </div>
    
