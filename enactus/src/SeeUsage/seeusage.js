@@ -25,7 +25,7 @@ class EnactusSeeUsage extends React.Component {
                 var s =[];
                 console.log(data);
                   for(var i = 0; i < data.length;i++){
-                      s.append(data[i].usage);
+                      s.append(data[i].usageKwh);
                   }
                 
                 this.setState({
