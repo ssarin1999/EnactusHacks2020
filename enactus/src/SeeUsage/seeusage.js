@@ -20,14 +20,14 @@ class EnactusSeeUsage extends React.Component {
       getChartData(){
           const url ="http://localhost:8080/api/usage/Arya Inc.";
 
-          fetch(url).then(
-              data=>{
+          fetch(url).then(response=> response.json().then(data => {
+            console.log(data[0].year);
                 var s =[];
-                console.log(data);
-                  for(var i = 0; i < data.length;i++){
-                      s.append(data[i].usageKwh);
-                  }
-                
+                console.log(data.json());
+                for(var i = 0; i < data.length;i++){
+                    s.append(data[i].usage);
+                }
+            
                 this.setState({
                    chartData:{
                        labels: ['J', 'F', 'M', 'A', 'M', 'J','J','A','S','O','N','D'],
@@ -37,6 +37,7 @@ class EnactusSeeUsage extends React.Component {
                            data:s,
                            backgroundColor:[
                                'rgba(255, 255, 255,1)'
+
                             
                            ]
                          }
@@ -44,8 +45,11 @@ class EnactusSeeUsage extends React.Component {
                      }
                })
                 
-                }
+            }
         ).then(res=>{console.log(res)})
+          );
+              
+            
           
       
       }
