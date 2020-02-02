@@ -1,0 +1,12 @@
+.survey{
+    position:absolute;
+    left:0%;
+    top:15%;
+    width:100%;
+    background-color:white;
+    padding:30px;
+}
+
+.h2-signup{
+    text-align:center;
+}
