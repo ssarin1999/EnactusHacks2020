@@ -34,6 +34,10 @@ const EnergyProviderSchema = new Schema({
 	country: {
         type: String,
         required: true
+    },
+	ratings: {
+        type: String,
+        required: false
     }
 });
 
