@@ -10,3 +10,18 @@
 .h2-signup{
     text-align:center;
 }
+
+.buttonLoc {
+    
+    position: absolute;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border:none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 35%;
+    top:100%;
+    left: 42%;
+   
+  }

@@ -43,22 +43,11 @@ class Login extends React.Component {
       }
     
       handleSubmit(event) {
-        let url = 'http://localhost:8080/api/usage';
-        fetch(url, {
-            method: 'post',
-            headers: {'Content-Type' : 'application/json'},
-            body : JSON.stringify({
-                'clientName': this.state.energyprovider,
-                'month': this.state.month,
-                'year': this.state.year,
-                'usageDollar': this.state.cost,
-                'usageKwh': this.state.usage,
-                'carbonDollar': this.state.carbon
-            })
-        }).then(res => {
-            if (res.ok) console.log(res.json())
+        let url = 'http://localhost:8080/api/provider/test/1,2,3,4,5,6';
+        fetch(url).then(res => {
+            if (res.ok) console.log("Hello")
         }).then(data => {
-            window.location.replace("/see");
+            
         });
 
 
@@ -66,7 +55,6 @@ class Login extends React.Component {
        
     }
     
-    };
 
     render(){
         return (
@@ -80,38 +68,41 @@ class Login extends React.Component {
               
                 <Row>
                 <Col>
-              <h5 class="h5-signup">1</h5>
+              <h5 class="h5-signup">Speed to Set Up</h5>
               <input type="number" placeholder="1 (Most Important) to 6 (Least Important)" min="1" max="6" cost={this.state.cost} onChange={this.handleCost} required/>
               </Col>
               <Col>
-              <h5 class="h5-signup">2</h5>
+              <h5 class="h5-signup">Capacity</h5>
               <input type="number" placeholder="1 (Most Important) to 6 (Least Important)"  min="1" max="6" cost={this.state.cost} onChange={this.handleCost} required/>
               </Col>
               </Row>
               
               <Row>
                 <Col>
-                <h5 class="h5-signup">3</h5>
+                <h5 class="h5-signup">Consistency</h5>
               <input type="number" placeholder="1 (Most Important) to 6 (Least Important)"  min="1" max="6" cost={this.state.cost} onChange={this.handleCost} required/>
               </Col>
               <Col>
-              <h5 class="h5-signup">4</h5>
+              <h5 class="h5-signup">Speed of Delivery</h5>
               <input type="number" placeholder="1 (Most Important) to 6 (Least Important)"  min="1" max="6" cost={this.state.cost} onChange={this.handleCost} required/>
               </Col>
               </Row>
               <Row>
                 <Col>
-                <h5 class="h5-signup">5</h5>
+                <h5 class="h5-signup">Cost</h5>
               <input type="number" placeholder="1 (Most Important) to 6 (Least Important)"  min="1" max="6" cost={this.state.cost} onChange={this.handleCost} required/>
               </Col>
               <Col>
-              <h5 class="h5-signup">6</h5>
+              <h5 class="h5-signup">Customer Service</h5>
               <input type="number" placeholder="1 (Most Important) to 6 (Least Important)"  min="1" max="6" cost={this.state.cost} onChange={this.handleCost} required/>
               </Col>
               </Row>
               
           
             </div>
+            <div class = "buttonLoc">
+    <button type="submit">Submit</button>
+    </div>
             </Form>
             </div>
         );
