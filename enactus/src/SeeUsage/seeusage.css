@@ -23,3 +23,11 @@
     width:40%;
 }
 
+.usage-title{
+    position:absolute;
+    left:5%;
+    top:25%;
+    color:white;
+    font-family: 'Poppins', sans-serif;
+}
+

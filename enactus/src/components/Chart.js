@@ -2,39 +2,15 @@ import React, {Component} from 'react';
 import {Bar, Line, Pie} from 'react-chartjs-2';
 
 class Chart extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-        chartData:{
-            labels: ['J', 'F', 'M', 'A', 'M', 'J','J','A','S','O','N','D'],
-            datasets:[
-              {
-                label:'Energy Consumption (in kWh)',
-                data:[
-                  1500,
-                  1700,
-                  1850,
-                  1750,
-                  1235,
-                  1256,
-                  1500,
-                  1700,
-                  1850,
-                  1750,
-                  1235,
-                  1256
-                  
-                ],
-                backgroundColor:[
-                    'rgba(255, 255, 255,1)'
-                 
-                ]
-              }
-            ]
-          }
     
-    }
-  }
+    constructor(props){
+        super(props);
+        this.state = {
+          chartData:props.chartData
+        }
+      }
+    
+     
 
   render(){
     return (

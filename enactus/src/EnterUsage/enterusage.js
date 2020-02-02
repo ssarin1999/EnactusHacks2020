@@ -73,6 +73,7 @@ class EnactusEnterUsage extends React.Component {
   return (
     
     <div className="App">
+         <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"></link>
     <div class="input-form">
 
 <Form onSubmit = {this.handleSubmit}>
