@@ -190,12 +190,16 @@ function project(usage, carbonChangeRate) {
 	// Use month to month projects to create year to year projections
 	let anualData = [];
 	let lastYear = usage[0].year;
+	console.log(lastYear);
 	let carbonTonSum, carbonTaxSum, carbonSocialSum;
 	carbonTonSum = carbonTaxSum = carbonSocialSum = 0;
 	for (let i = 0; i < monthlyData.length; i++){
 		let month = monthlyData[i]
 
 		if(month[1] != lastYear){
+			if(carbonTon <= 0){
+				carbonTonSum = carbonTaxSum = carbonSocialSum = 0;
+			}
 			let yearData = [lastYear, carbonTonSum, carbonTaxSum, carbonSocialSum];
 			anualData.push(yearData);
 			carbonTonSum = 0;
@@ -209,6 +213,9 @@ function project(usage, carbonChangeRate) {
 		carbonSocialSum += month[4];
 
 		if(month[0] == 12 && month[1] == 2022){
+			if(carbonTon <= 0){
+				carbonTonSum = carbonTaxSum = carbonSocialSum = 0;
+			}
 			let yearData = [lastYear, carbonTonSum, carbonTaxSum, carbonSocialSum];
 			anualData.push(yearData); // Push final 2022 data
 		}
