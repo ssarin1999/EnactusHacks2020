@@ -104,14 +104,14 @@ class EnactusEnterUsage extends React.Component {
         </Col>
     </Row>
       <div class = "buttonLoc">
-    <button type="submit">Submit</button>
+    <button class="button1" type="submit">Submit</button>
     </div>
 
   </div>
   </Form>
 </div>
 
-<div class="background-shape"></div>
+<div class="background-shape2"></div>
     </div>
    
   

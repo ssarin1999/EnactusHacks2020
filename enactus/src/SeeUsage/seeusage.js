@@ -51,7 +51,7 @@ class EnactusSeeUsage extends React.Component {
                 }) 
             
                 pchange = Math.round((data[data.length-1].usageKwh - data[data.length-2].usageKwh)/data[data.length-2].usageKwh*100);
-                if(data[data.length-1].usageKwh > data[data.length-2].usageKwh){
+                if(data[data.length-2].usageKwh > data[data.length-1].usageKwh){
                   pchange = pchange*(-1);
                 }
 
