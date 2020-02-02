@@ -95,7 +95,7 @@ router.get('/projection/:client', (req, res) => {
 			let avgCarbonChange = calcAvgCarbonTonChange(usages, length);
 			let projection = project(usages, avgCarbonChange);
 
-			console.log("projection");
+			console.log("Projection:");
 			console.log(projection);
 
 			res.status(200).send(projection);
@@ -133,8 +133,9 @@ function calcAvgCarbonTonChange(usages, length) {
 function project(usage, carbonChangeRate) {
 	// Project month to month
 	let month, year, carbonTon, carbonTaxRate;
+	year = usage[0].year;
 	let monthlyData = []; //[month, year, carbonTon, carbonDollar, Social]
-	for (let i = 0; year < 2022; i++) {
+	for (let i = 0; year < 2023; i++) {
 		// Calc carbon tax rate
 		switch (year) {
 			case 2019:
@@ -160,7 +161,6 @@ function project(usage, carbonChangeRate) {
 			let carbonDollar = usage[i].carbonDollar;
 
 			let data = [month, year, carbonTon, carbonDollar, carbonTon*50];
-			console.log()
 			monthlyData.push(data);
 
 			if (month == 12) {
@@ -191,6 +191,7 @@ function project(usage, carbonChangeRate) {
 	let anualData = [];
 	let lastYear = usage[0].year;
 	let carbonTonSum, carbonTaxSum, carbonSocialSum;
+	carbonTonSum = carbonTaxSum = carbonSocialSum = 0;
 	for (let i = 0; i < monthlyData.length; i++){
 		let month = monthlyData[i]
 
@@ -215,7 +216,6 @@ function project(usage, carbonChangeRate) {
 	
 	return anualData;
 }
-
 
 // ======================================================================================
 // Export Module
